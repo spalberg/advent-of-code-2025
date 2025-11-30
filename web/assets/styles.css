@@ -4,3 +4,17 @@
 }
 
 @custom-variant dark (&:where([data-theme=dracula], [data-theme=dracula] *));
+
+.snowflake {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: linear-gradient(white, white);
+  /* Workaround for Chromium's selective color inversion */
+  border-radius: 50%;
+  filter: drop-shadow(0 0 10px white);
+}
+
+/* @view-transition {
+	navigation: auto;
+} */

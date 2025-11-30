@@ -1,10 +1,16 @@
+import { ClassValue, clsx } from "clsx";
 import { createDefine } from "fresh";
+import { twMerge } from "tailwind-merge";
 
 export interface State {
   colorScheme: ColorSchema | null;
 }
 
 export const define = createDefine<State>();
+
+export const cn = (...inputs: ClassValue[]): string => {
+  return twMerge(clsx(inputs));
+};
 
 export type Theme = "winter" | "dracula";
 export type ColorSchema = "light" | "dark";
