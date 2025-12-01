@@ -1,7 +1,7 @@
 import day1 from "./1/main.ts";
-import type { Solution } from "./utils.ts";
+import type { SolutionFn } from "./utils.ts";
 
-const solutions = new Map<number, Solution>([
+const solutions = new Map<number, SolutionFn>([
   [1, day1],
 ]);
 
