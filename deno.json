@@ -2,6 +2,12 @@
   "workspace": ["./solutions", "./web"],
   "nodeModulesDir": "manual",
   "tasks": {
-    "check": "deno fmt --check . && deno lint . && deno check"
+    "check": "deno fmt --check . && deno lint . && deno check",
+    "build": "deno task --cwd web build",
+    "build:clean": "rm -rf ./_fresh",
+    "build:deno-deploy": {
+      "dependencies": ["build", "build:clean"],
+      "command": "mv ./web/_fresh ./"
+    }
   }
 }
