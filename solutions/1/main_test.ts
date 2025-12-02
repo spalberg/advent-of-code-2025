@@ -1,7 +1,7 @@
 import { testDay } from "@/utils.ts";
 import solution from "./main.ts";
 
-await testDay(1, solution, async (test) => {
+await testDay(1, solution, async (test, loadInput) => {
   await test(
     "Example",
     `
@@ -17,5 +17,10 @@ await testDay(1, solution, async (test) => {
     L82
     `,
     { part1: 3, part2: 6 },
+  );
+  await test(
+    "Challange",
+    await loadInput(),
+    { part1: 997, part2: 5978 },
   );
 });

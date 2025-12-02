@@ -71,7 +71,7 @@ type TestFn = (
 export async function testDay(
   day: number,
   solutionFn: SolutionFn,
-  testExecution: (testFn: TestFn) => Promise<void>,
+  testExecution: (testFn: TestFn, loadInput: () => Promise<Array<string>>) => Promise<void>,
 ) {
   await Deno.test(`Day ${day}`, async (t) => {
     const testFn: TestFn = async (label, input, assertions) => {
@@ -100,7 +100,7 @@ export async function testDay(
         }
       });
     };
-    await testExecution(testFn);
+    await testExecution(testFn, () => loadInput(day));
   });
 }
 
