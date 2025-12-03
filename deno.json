@@ -9,5 +9,10 @@
       "dependencies": ["build", "build:clean"],
       "command": "mv ./web/_fresh ./"
     }
+  },
+  "test": {
+    "permissions": {
+      "read": ["./inputs"]
+    }
   }
 }
