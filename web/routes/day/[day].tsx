@@ -1,9 +1,10 @@
+import { days } from "@/days.ts";
+import { Solver } from "@/islands/Solver.tsx";
 import ThemeToggle from "@/islands/ThemeToggle.tsx";
 import { cn, define } from "@/utils.ts";
-import { days } from "../../days.ts";
 
 export default define.page(function Day(ctx) {
-  const day = parseInt(ctx.params.day);
+  const day = Number(ctx.params.day);
   const color = days[day - 1]?.color || "";
   const icon = days[day - 1]?.icon || "";
   // { viewTransitionName: `door-${day}-color` }
@@ -26,7 +27,7 @@ export default define.page(function Day(ctx) {
               >
                 {icon}
               </div>
-              <div className="text-white"// style={{ viewTransitionName: `door-${day}-number` }}
+              <div className="text-white" // style={{ viewTransitionName: `door-${day}-number` }}
               >
                 {day}
               </div>
@@ -55,6 +56,7 @@ export default define.page(function Day(ctx) {
           <ThemeToggle />
         </div>
       </div>
+      <Solver day={day} />
     </div>
   );
 });
