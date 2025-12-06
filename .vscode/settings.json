@@ -19,5 +19,8 @@
   },
   "[snippets]": {
     "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[plaintext]": {
+    "editor.defaultFormatter": null
   }
 }
