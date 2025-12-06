@@ -11,6 +11,8 @@ import {
 } from "@aoc/2025-solutions";
 import denoJson from "./deno.json" with { type: "json" };
 
+const ownVersion = denoJson.version;
+
 const list = new Command()
   .description("List all available solutions")
   .action(() => {
@@ -29,12 +31,12 @@ const update = new Command()
       );
     const isUpdateAvailable = greaterThan(
       parse(latest),
-      parse(denoJson.version),
+      parse(ownVersion),
     );
     if (isUpdateAvailable) {
       console.log(
         colors.bold.yellow(
-          `Update available: ${denoJson.version} -> ${latest}`,
+          `Update available: ${ownVersion} -> ${latest}`,
         ),
       );
       console.log("Updating...");
@@ -49,7 +51,7 @@ const update = new Command()
 
 const main = new Command()
   .name("Advent of Code - 2025")
-  .version(denoJson.version)
+  .version(ownVersion)
   .description(`
     Solutions to Advent of Code 2025 by spalberg
 
@@ -111,7 +113,6 @@ async function provideInput(): Promise<string> {
   return await Input.prompt({
     message: "Provide input (path or URL)",
     files: true,
-
   });
 }
 

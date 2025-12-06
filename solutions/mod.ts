@@ -12,11 +12,11 @@ const solutions = new Map<number, SolutionFn>(
   ) => [day, solutionFn]),
 );
 
-export function getSolutionForDay(day: number) {
+export function getSolutionForDay(day: number): SolutionFn | null {
   return solutions.get(day) ?? null;
 }
 
-export function getAvailableSolutions() {
+export function getAvailableSolutions(): Array<number> {
   return [...solutions.keys()].toSorted((a, b) => a - b);
 }
 

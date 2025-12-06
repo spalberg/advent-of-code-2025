@@ -1,5 +1,7 @@
 {
   "name": "@aoc/2025-solutions",
+  "version": "0.0.1",
+  "license": "MIT",
   "exports": "./mod.ts",
   "tasks": {
     "dev": "deno test -A --watch --hide-stacktraces"
@@ -9,5 +11,10 @@
     "@std/assert": "jsr:@std/assert@^1.0.16",
     "@std/path": "jsr:@std/path@^1.1.3",
     "@std/streams": "jsr:@std/streams@^1.0.14"
+  },
+  "publish": {
+    "exclude": [
+      "**/*_test.ts"
+    ]
   }
 }
