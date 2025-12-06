@@ -2,7 +2,7 @@ import { defineSolution, runSolution } from "@/utils.ts";
 
 type BatteryBank = Array<number>;
 
-const solution = defineSolution((input) => {
+const solution = defineSolution(3, (input) => {
   const batteryBanks = input.map((line) => line.split("").map(Number));
   return {
     part1: () => solve(batteryBanks, 2),
@@ -47,7 +47,7 @@ function findMaxIndex(
 }
 
 if (import.meta.main) {
-  runSolution(solution, 3);
+  runSolution(solution);
 }
 
 export default solution;

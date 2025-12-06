@@ -1,0 +1,15 @@
+{
+  "name": "@aoc/2025",
+  "exports": "./cli.ts",
+  "version": "0.6.0",
+  "license": "MIT",
+  "tasks": {
+    "cli": "deno run -RN ./cli.ts"
+  },
+  "imports": {
+    "@cliffy/ansi": "jsr:@cliffy/ansi@^1.0.0-rc.8",
+    "@cliffy/command": "jsr:@cliffy/command@^1.0.0-rc.8",
+    "@cliffy/prompt": "jsr:@cliffy/prompt@^1.0.0-rc.8",
+    "@std/semver": "jsr:@std/semver@^1.0.7"
+  }
+}

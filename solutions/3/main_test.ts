@@ -1,7 +1,7 @@
 import { testDay } from "@/utils.ts";
 import solution from "./main.ts";
 
-await testDay(3, solution, async (test, loadInput) => {
+await testDay(solution, async (test, loadInput) => {
   await test(
     "Example",
     `

@@ -1,5 +1,5 @@
 {
-  "workspace": ["./solutions", "./web"],
+  "workspace": ["./solutions", "./web", "./cli"],
   "nodeModulesDir": "manual",
   "tasks": {
     "check": "deno fmt --check . && deno lint . && deno check",

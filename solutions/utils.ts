@@ -12,11 +12,17 @@ interface Solution {
 }
 
 export type SolutionFn = (input: Array<string>) => Solution;
-export function defineSolution(solutionFn: SolutionFn) {
-  return solutionFn;
+
+interface SolutionFnForDay {
+   day: number;
+   solutionFn: SolutionFn;
 }
 
-export async function runSolution(solutionFn: SolutionFn, day: number) {
+export function defineSolution(day: number, solutionFn: SolutionFn): SolutionFnForDay {
+  return { day, solutionFn };
+}
+
+export async function runSolution({ solutionFn, day }: SolutionFnForDay) {
   const { part1, part2 } = solutionFn(await loadInput(day));
   console.log("Part 1:", part1?.() ?? "-");
   console.log("Part 2:", part2?.() ?? "-");
@@ -69,9 +75,11 @@ type TestFn = (
   assertions: Assertion | Array<Assertion>,
 ) => void;
 export async function testDay(
-  day: number,
-  solutionFn: SolutionFn,
-  testExecution: (testFn: TestFn, loadInput: () => Promise<Array<string>>) => Promise<void>,
+  { day, solutionFn }: SolutionFnForDay,
+  testExecution: (
+    testFn: TestFn,
+    loadInput: () => Promise<Array<string>>,
+  ) => Promise<void>,
 ) {
   await Deno.test(`Day ${day}`, async (t) => {
     const testFn: TestFn = async (label, input, assertions) => {
@@ -80,7 +88,6 @@ export async function testDay(
         : input.trim().split("\n").map((l) => l.trim());
       assertions = Array.isArray(assertions) ? assertions : [assertions];
       const { part1, part2 } = solutionFn(input);
-      // TODO eval only needed
       await t.step(label, async (t) => {
         for (const assertion of assertions) {
           if (assertion.part1 != null) {
@@ -103,4 +110,3 @@ export async function testDay(
     await testExecution(testFn, () => loadInput(day));
   });
 }
-

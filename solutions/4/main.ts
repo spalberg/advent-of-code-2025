@@ -1,6 +1,6 @@
 import { defineSolution, runSolution } from "@/utils.ts";
 
-const solution = defineSolution((input) => {
+const solution = defineSolution(4, (input) => {
   return {
     part1: () => part1(input),
     part2: () => part2(input),
@@ -60,7 +60,7 @@ function removeRollsOfPaper(
 }
 
 if (import.meta.main) {
-  runSolution(solution, 4);
+  runSolution(solution);
 }
 
 export default solution;

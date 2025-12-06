@@ -1,6 +1,6 @@
 import { defineSolution, runSolution } from "@/utils.ts";
 
-const solution = defineSolution((input) => {
+const solution = defineSolution(5, (input) => {
   let { ranges, ids } = parse(input);
   ranges = mergeOverlappingRanges(ranges);
   return {
@@ -73,7 +73,7 @@ function mergeOverlappingRanges(ranges: Array<Range>) {
 }
 
 if (import.meta.main) {
-  runSolution(solution, 5);
+  runSolution(solution);
 }
 
 export default solution;

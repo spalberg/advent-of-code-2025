@@ -1,6 +1,6 @@
 import { defineSolution, runSolution } from "@/utils.ts";
 
-const solution = defineSolution((input) => {
+const solution = defineSolution(6, (input) => {
   return {
     part1: () => part1(input),
     part2: () => part2(input),
@@ -56,7 +56,7 @@ function part2(input: Array<string>) {
 }
 
 if (import.meta.main) {
-  runSolution(solution, 6);
+  runSolution(solution);
 }
 
 export default solution;

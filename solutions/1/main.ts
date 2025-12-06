@@ -1,6 +1,6 @@
 import { defineSolution, runSolution } from "@/utils.ts";
 
-const solution = defineSolution((input) => {
+const solution = defineSolution(1, (input) => {
   const { finalZeros, intermediateZeros } = solve(input);
   return {
     part1: () => finalZeros,
@@ -36,7 +36,7 @@ function parseDist(line: string) {
 }
 
 if (import.meta.main) {
-  runSolution(solution, 1);
+  runSolution(solution);
 }
 
 export default solution;

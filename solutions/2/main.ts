@@ -3,7 +3,7 @@ import { defineSolution, runSolution } from "@/utils.ts";
 type Range = [number, number];
 type SeqLengthGen = (length: number) => Array<number>;
 
-const solution = defineSolution((input) => {
+const solution = defineSolution(2, (input) => {
   const ranges = input.join(",").split(",").map((r) =>
     r.split("-").map(Number) as Range
   );
@@ -13,7 +13,9 @@ const solution = defineSolution((input) => {
     part2: () =>
       solve(
         ranges,
-        memo((length) => Array(Math.trunc(length / 2)).fill(0).map((_, i) => i + 1)),
+        memo((length) =>
+          Array(Math.trunc(length / 2)).fill(0).map((_, i) => i + 1)
+        ),
       ),
   };
 });
@@ -61,7 +63,7 @@ function memo(fn: SeqLengthGen): SeqLengthGen {
 }
 
 if (import.meta.main) {
-  runSolution(solution, 2);
+  runSolution(solution);
 }
 
 export default solution;
