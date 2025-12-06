@@ -1,0 +1,49 @@
+{
+	"implementation for daily challenge": {
+		"scope": "typescript",
+		"prefix": "impl",
+		"body": [
+			"import { defineSolution, runSolution } from \"@/utils.ts\";",
+			"",
+			"const solution = defineSolution((input) => {",
+			"  return {",
+			"    part1: null,",
+			"    part2: null,",
+			"  };",
+			"});",
+			"",
+			"if (import.meta.main) {",
+			"  runSolution(solution, $1);",
+			"}",
+			"",
+			"export default solution;",
+			""
+		],
+		"description": "implementation for daily challenge"
+	},
+	"test for daily challenge": {
+		"scope": "typescript",
+		"prefix": "test",
+		"body": [
+			"import { testDay } from \"@/utils.ts\";",
+			"import solution from \"./main.ts\";",
+			"",
+			"await testDay($1, solution, async (test, loadInput) => {",
+			"  await test(",
+			"    \"Example\",",
+			"    `",
+			"    ",
+			"    `,",
+			"    { part1: undefined, part2: undefined },",
+			"  );",
+			"  await test(",
+			"    \"Challange\",",
+			"    await loadInput(),",
+			"    { part1: undefined, part2: undefined },",
+			"  );",
+			"});",
+			""
+		],
+		"description": "test for daily challenge"
+	}
+}

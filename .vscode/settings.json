@@ -16,5 +16,8 @@
   },
   "files.associations": {
     "*.css": "tailwindcss"
+  },
+  "[snippets]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
   }
 }
