@@ -14,11 +14,14 @@ interface Solution {
 export type SolutionFn = (input: Array<string>) => Solution;
 
 interface SolutionFnForDay {
-   day: number;
-   solutionFn: SolutionFn;
+  day: number;
+  solutionFn: SolutionFn;
 }
 
-export function defineSolution(day: number, solutionFn: SolutionFn): SolutionFnForDay {
+export function defineSolution(
+  day: number,
+  solutionFn: SolutionFn,
+): SolutionFnForDay {
   return { day, solutionFn };
 }
 
