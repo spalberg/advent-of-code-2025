@@ -1,6 +1,6 @@
 import { App, staticFiles, trailingSlashes } from "fresh";
 import { getCookies } from "@std/http/cookie";
-import { type State } from "./utils.ts";
+import type { State } from "./utils.ts";
 
 export const app = new App<State>();
 

@@ -1,4 +1,4 @@
-import { ClassValue, clsx } from "clsx";
+import { type ClassValue, clsx } from "clsx";
 import { createDefine } from "fresh";
 import { twMerge } from "tailwind-merge";
 

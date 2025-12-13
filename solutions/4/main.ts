@@ -60,7 +60,7 @@ function removeRollsOfPaper(
 }
 
 if (import.meta.main) {
-  runSolution(solution);
+  await runSolution(solution);
 }
 
 export default solution;

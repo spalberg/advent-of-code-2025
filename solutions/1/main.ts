@@ -36,7 +36,7 @@ function parseDist(line: string) {
 }
 
 if (import.meta.main) {
-  runSolution(solution);
+  await runSolution(solution);
 }
 
 export default solution;

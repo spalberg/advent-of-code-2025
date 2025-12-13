@@ -73,7 +73,7 @@ function mergeOverlappingRanges(ranges: Array<Range>) {
 }
 
 if (import.meta.main) {
-  runSolution(solution);
+  await runSolution(solution);
 }
 
 export default solution;
