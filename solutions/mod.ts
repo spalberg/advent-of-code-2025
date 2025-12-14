@@ -8,10 +8,11 @@ import day7 from "./7/main.ts";
 import day8 from "./8/main.ts";
 import day9 from "./9/main.ts";
 import day10 from "./10/main.ts";
+import day11 from "./11/main.ts";
 import type { SolutionFn } from "./utils.ts";
 
 const solutions = new Map<number, SolutionFn>(
-  [day1, day2, day3, day4, day5, day6, day7, day8, day9, day10].map((
+  [day1, day2, day3, day4, day5, day6, day7, day8, day9, day10, day11].map((
     { day, solutionFn },
   ) => [day, solutionFn]),
 );

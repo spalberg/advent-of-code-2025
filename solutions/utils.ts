@@ -84,6 +84,7 @@ export async function testDay(
   testExecution: (
     testFn: TestFn,
     loadInput: () => Promise<Input>,
+    t: Deno.TestContext
   ) => Promise<void>,
 ) {
   await Deno.test(`Day ${day}`, async (t) => {
@@ -112,6 +113,6 @@ export async function testDay(
         }
       });
     };
-    await testExecution(testFn, () => loadInput(day));
+    await testExecution(testFn, () => loadInput(day), t);
   });
 }
