@@ -13,7 +13,9 @@ const solution = defineSolution(9, (input) => {
     part1: () => sortedByAreaDesc[0][1],
     part2: () => {
       const edges = makeEdges(points);
-      const hasEdgeIntersection = ([[x1, y1], [x2, y2]]: [a: Point, b: Point]) =>
+      const hasEdgeIntersection = (
+        [[x1, y1], [x2, y2]]: [a: Point, b: Point],
+      ) =>
         edges.some(
           ([[ex1, ey1], [ex2, ey2]]) =>
             isOverlapping(ey1, ey2, y1, y2) && isOverlapping(ex1, ex2, x1, x2),

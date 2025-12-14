@@ -2,7 +2,9 @@ import { dirname, fromFileUrl, resolve } from "@std/path";
 import { TextLineStream } from "@std/streams";
 import { assertEquals, unimplemented } from "@std/assert";
 
-export function part(partFn: (input: Array<string>) => number) {
+export type Input = Array<string>;
+
+export function part(partFn: (input: Input) => number) {
   return partFn;
 }
 
@@ -11,7 +13,7 @@ interface Solution {
   part2: (() => number) | null;
 }
 
-export type SolutionFn = (input: Array<string>) => Solution;
+export type SolutionFn = (input: Input) => Solution;
 
 interface SolutionFnForDay {
   day: number;
@@ -40,7 +42,7 @@ async function getLines(
   return await Array.fromAsync(stream);
 }
 
-export function loadInput(day: number): Promise<Array<string>> {
+export function loadInput(day: number): Promise<Input> {
   const path = resolve(
     dirname(fromFileUrl(import.meta.url)),
     "..",
@@ -74,14 +76,14 @@ interface Assertion {
 }
 type TestFn = (
   label: string,
-  input: string | Array<string>,
+  input: string | Input,
   assertions: Assertion | Array<Assertion>,
 ) => void;
 export async function testDay(
   { day, solutionFn }: SolutionFnForDay,
   testExecution: (
     testFn: TestFn,
-    loadInput: () => Promise<Array<string>>,
+    loadInput: () => Promise<Input>,
   ) => Promise<void>,
 ) {
   await Deno.test(`Day ${day}`, async (t) => {
